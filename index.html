@@ -45,8 +45,8 @@ nav ul a:hover{color:var(--ink)}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;width:100%}
 .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:36px;height:2px;background:var(--grad)}
-h1{font-size:clamp(54px,9.5vw,138px);letter-spacing:-.04em;margin:22px 0 22px;font-weight:800}
-h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+h1{font-size:clamp(40px,6.2vw,92px);letter-spacing:-.03em;margin:22px 0 22px;font-weight:800;line-height:1.02}
+h1 .ln{display:block;overflow:hidden;padding:.04em .1em .16em 0;white-space:nowrap}
 h1 .ch{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
 h1 .grad-text{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit;animation:none}
 h1 .grad-text .ch{background-image:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.02em}
@@ -92,7 +92,7 @@ h1 .grad-text .ch{background-image:var(--grad);-webkit-background-clip:text;back
 section.s{padding:110px 0 30px;position:relative}
 .sh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
 .num{font-family:'Syne';font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--a);margin-bottom:14px;display:block}
-h2{font-size:clamp(44px,7vw,98px);letter-spacing:-.035em;font-weight:800}
+h2{font-size:clamp(30px,6vw,84px);overflow-wrap:anywhere;letter-spacing:-.035em;font-weight:800}
 h2 .o{-webkit-text-stroke:1.5px var(--ink);color:transparent}
 .sh p{max-width:430px;color:var(--mute);font-size:16px}
 
@@ -152,9 +152,23 @@ dl.meta dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:va
 dl.meta dt:first-child{margin-top:0}
 dl.meta dd{font-size:18px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-top:4px}
 
+/* portrait */
+.me{position:relative;max-width:400px;aspect-ratio:4/5;margin:0 0 44px 14px}
+.me .ring{position:absolute;inset:-12px;border-radius:220px 220px 30px 30px;background:linear-gradient(120deg,#ff5a36,#ff2d87,#7a4dff,#ff5a36,#ff2d87);background-size:300% 300%;animation:ringmove 6s linear infinite}
+@keyframes ringmove{to{background-position:300% 0}}
+.me .ph{position:absolute;inset:0;border-radius:208px 208px 20px 20px;overflow:hidden;background:#12121a;border:4px solid var(--bg)}
+.me img{width:100%;height:100%;object-fit:cover;object-position:65% 0;filter:contrast(1.1) saturate(1.2) brightness(.96);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.me:hover img{transform:scale(1.05)}
+.me .ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(145deg,rgba(255,90,54,.4),transparent 45%,rgba(122,77,255,.45));mix-blend-mode:soft-light}
+.me .ph::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 60%,rgba(9,9,13,.7))}
+.me .tag{position:absolute;z-index:3;font-size:13px;font-weight:500;padding:9px 16px;border-radius:99px;background:rgba(9,9,13,.78);backdrop-filter:blur(10px);border:1px solid var(--line);white-space:nowrap;animation:bob 5s ease-in-out infinite}
+.me .t1{left:-26px;bottom:18%}.me .t2{right:-18px;top:14%;animation-delay:-2.5s}.me .t3{left:12%;bottom:-18px;animation-delay:-1.2s;background:var(--grad);border-color:transparent}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.me .dot{position:absolute;z-index:3;width:70px;height:70px;border-radius:50%;right:-20px;bottom:10%;background:var(--grad);filter:blur(2px);opacity:.85;animation:bob 7s ease-in-out infinite}
+
 /* contact */
 .contact{padding:140px 0 90px;text-align:center;position:relative;overflow:hidden}
-.contact h2{font-size:clamp(52px,10vw,150px);margin-bottom:26px}
+.contact h2{font-size:clamp(32px,8vw,128px);margin-bottom:26px}
 .contact p{color:var(--mute);max-width:520px;margin:0 auto 46px;font-size:18px}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;max-width:1000px;margin:0 auto}
 .cbox{display:block;min-width:0;text-align:left;text-decoration:none;padding:26px 28px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:transform .3s,background .3s,border-color .3s;position:relative;overflow:hidden}
@@ -328,7 +342,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="about">
    <div class="rv"><div class="big">Designing for people who are usually designed for <span class="grad-text">last</span>: patients in small towns, first-time buyers, and artisan communities in the Kangra Valley.</div>
    <p>I'm a Master of Design (Space) student at NIFT Kangra, working in Interaction Design and UX. My practice moves between academic research, industry briefs and collaborations with real organisations.</p></div>
-   <dl class="meta rv" style="--d:.15s"><dt>Education</dt><dd>M.Des (Space), NIFT Kangra</dd><dt>Focus</dt><dd>Interaction Design · UX · Graphic Design</dd><dt>Experience</dt><dd>Design intern, Medyseva Tech Pvt Ltd</dd><dt>Tools</dt><dd>Canva · Adobe Illustrator · Photography</dd></dl>
+   <div class="rv" style="--d:.15s"><div class="me"><div class="ring"></div><div class="ph"><img src="img/sajal.jpg" alt="Sajal Yadav" loading="lazy"></div><span class="tag t1">M.Des · NIFT Kangra</span><span class="tag t2">Interaction · UX</span><span class="tag t3">Graphics · Campaigns</span><span class="dot"></span></div>
+   <dl class="meta"><dt>Education</dt><dd>M.Des (Space), NIFT Kangra</dd><dt>Focus</dt><dd>Interaction Design · UX · Graphic Design</dd><dt>Experience</dt><dd>Design intern, Medyseva Tech Pvt Ltd</dd><dt>Tools</dt><dd>Canva · Adobe Illustrator · Photography</dd></dl></div>
   </div>
  </section>
 </main>
